@@ -5,7 +5,7 @@
 
     <groupId>com.theoryinpractise.frege</groupId>
     <artifactId>frege</artifactId>
-    <version>${frege.version}-SNAPSHOT</version>
+    <version>3.21.232-g7b05453</version>
     <packaging>bundle</packaging>
     <name>Frege Language Bundle</name>
     <description>fregelib OSGi bundle project.</description>
@@ -15,7 +15,8 @@
         <connection>scm:git:git@github.com:talios/frege-bundle.git</connection>
         <developerConnection>scm:git:git@github.com:talios/frege-bundle.git</developerConnection>
         <url>http://github.com/talios/frege-bundle</url>      
-    </scm>
+      <tag>frege-3.21.232-g7b05453</tag>
+  </scm>
 
     <properties>
         <frege.base.version>3.21.232</frege.base.version>
