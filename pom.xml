@@ -5,10 +5,11 @@
 
     <groupId>com.theoryinpractise.frege</groupId>
     <artifactId>frege</artifactId>
-    <version>${frege.version}</version>
+    <version>${frege.version}-SNAPSHOT</version>
     <packaging>bundle</packaging>
-    <name>fregelib Bundle</name>
+    <name>Frege Language Bundle</name>
     <description>fregelib OSGi bundle project.</description>
+    <url>https://github.com/talios/frege-bundle</url>
 
     <scm>
         <connection>scm:git:git@github.com:talios/frege-bundle.git</connection>
@@ -18,7 +19,7 @@
 
     <properties>
         <frege.base.version>3.21.232</frege.base.version>
-        <frege.version>${frege.base.version}-g7b05453</frege.version>        
+        <frege.version>${frege.base.version}-g7b05453</frege.version>
     </properties>
 
     <developers>
@@ -69,6 +70,17 @@
                                 </goals>
                             </execution>
                         </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <version>2.4.1</version>
+                        <configuration>
+                            <preparationGoals>clean install</preparationGoals>
+                            <goals>deploy</goals>
+                            <pushChanges>false</pushChanges>
+                            <localCheckout>true</localCheckout>
+                            <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
