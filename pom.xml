@@ -5,7 +5,7 @@
 
     <groupId>com.theoryinpractise.frege</groupId>
     <artifactId>frege</artifactId>
-    <version>3.21.440-SNAPSHOT</version>
+    <version>${frege.version}-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>Frege Language Bundle</name>
     <description>fregelib OSGi bundle project.</description>
@@ -62,6 +62,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.5</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -71,6 +72,16 @@
                                 </goals>
                             </execution>
                         </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <version>2.5</version>
+                        <configuration>
+                            <preparationGoals>clean install</preparationGoals>
+                            <goals>deploy</goals>
+                            <pushChanges>false</pushChanges>
+                            <localCheckout>true</localCheckout>                            
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
