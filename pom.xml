@@ -56,7 +56,7 @@
                 <property>
                     <name>performRelease</name>
                     <value>true</value>
-                </property>
+                 </property>
             </activation>
             <build>
                 <plugins>
