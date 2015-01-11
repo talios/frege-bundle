@@ -5,7 +5,7 @@
 
     <groupId>com.theoryinpractise.frege</groupId>
     <artifactId>frege</artifactId>
-    <version>3.21.586-g027e8d7-SNAPSHOT</version>
+    <version>3.22.324-g630677b-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>Frege Language Bundle</name>
     <description>fregelib OSGi bundle project.</description>
@@ -18,10 +18,10 @@
       <tag>HEAD</tag>
   </scm>
 
-    <!-- https://github.com/Frege/frege/releases/download/3.21.586/frege3.21.586-g026e8d7.jar -->
+    <!-- https://github.com/Frege/frege/releases/download/3.22.324/frege3.22.324-g630677b.jar -->
     <properties>
-        <frege.base.version>3.21.586</frege.base.version>
-        <frege.version>${frege.base.version}-g026e8d7</frege.version>
+        <frege.base.version>3.22.324</frege.base.version>
+        <frege.version>${frege.base.version}-g630677b</frege.version>
     </properties>
 
     <developers>
