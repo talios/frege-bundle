@@ -5,7 +5,7 @@
 
     <groupId>com.theoryinpractise.frege</groupId>
     <artifactId>frege</artifactId>
-    <version>3.22.367-g2737683-SNAPSHOT</version>
+    <version>3.22.367-g2737684-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>Frege Language Bundle</name>
     <description>fregelib OSGi bundle project.</description>
