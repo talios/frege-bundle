@@ -3,26 +3,26 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.theoryinpractise.frege</groupId>
+    <groupId>org.frege-lang</groupId>
     <artifactId>frege</artifactId>
-    <version>3.22.367-g2737684-SNAPSHOT</version>
+    <version>3.22.524-gcc100d7e-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>Frege Language Bundle</name>
     <description>fregelib OSGi bundle project.</description>
     <url>https://github.com/talios/frege-bundle</url>
 
     <scm>
-        <connection>scm:git:git@github.com:talios/frege-bundle.git</connection>
-        <developerConnection>scm:git:git@github.com:talios/frege-bundle.git</developerConnection>
-        <url>http://github.com/talios/frege-bundle</url>
+        <connection>scm:git:git@github.com:Frege/frege-bundle.git</connection>
+        <developerConnection>scm:git:git@github.com:Frege/frege-bundle.git</developerConnection>
+        <url>http://github.com/Frege/frege-bundle</url>
       <tag>HEAD</tag>
   </scm>
 
-    <!-- https://github.com/Frege/frege/releases/download/3.22.324/frege3.22.367-g2737683.jar -->
+    <!-- https://github.com/Frege/frege/releases/download/3.22.324/frege3.22.524-gcc99d7e.jar -->
     <properties>
         <frege.main.version>3.22.324</frege.main.version>
-        <frege.base.version>3.22.367</frege.base.version>
-        <frege.version>${frege.base.version}-g2737683</frege.version>
+        <frege.base.version>3.22.524</frege.base.version>
+        <frege.version>${frege.base.version}-gcc99d7e</frege.version>
     </properties>
 
     <developers>
