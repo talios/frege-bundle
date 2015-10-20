@@ -5,7 +5,7 @@
 
     <groupId>org.frege-lang</groupId>
     <artifactId>frege</artifactId>
-    <version>3.23.288-gaa4af0c-SNAPSHOT</version>
+    <version>3.23.370-g899bc8c-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>Frege Language Bundle</name>
     <description>fregelib OSGi bundle project.</description>
@@ -18,11 +18,12 @@
       <tag>HEAD</tag>
   </scm>
 
-    <!-- https://github.com/Frege/frege/releases/download/3.23.288/3.23.288-gaa3af0c.jar -->
+
+    <!-- https://github.com/Frege/frege/releases/download/3.23.288/frege3.23.370-g898bc8c.jar -->
     <properties>
         <frege.main.version>3.23.288</frege.main.version>
-        <frege.base.version>3.23.288</frege.base.version>
-        <frege.version>${frege.base.version}-gaa3af0c</frege.version>
+        <frege.base.version>3.23.370</frege.base.version>
+        <frege.version>${frege.base.version}-g898bc8c</frege.version>
     </properties>
 
     <developers>
@@ -164,7 +165,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.5</version>
+                <version>2.5.3</version>
                 <configuration>
                     <preparationGoals>clean install</preparationGoals>
                     <goals>deploy</goals>
