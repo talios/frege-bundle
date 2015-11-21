@@ -1,16 +1,14 @@
-The project contains the released [Frege](http://www.frege-lang.org/) compiler
-and standard library package as an OSGi bundle and can be used wherever you
-require frege ( maven, ivy, sbt etc. ).
+The project contains the released [Frege](http://www.frege-lang.org/) compiler and standard library package as an OSGi bundle and can be used wherever you require frege ( maven, ivy, sbt etc. ).
 
-### Version
+# Version
+- `3.23.370-g899bc8c`
 
-* `3.21.232-g7b05453`
+# Maven
 
-### Maven
-
-    <dependency>
-      <groupId>com.theoryinpractise.frege</groupId>
-      <artifactId>frege</artifactId>
-      <version>${frege.version}</version>
-    </dependency>
-
+```
+<dependency>
+  <groupId>com.theoryinpractise.frege</groupId>
+  <artifactId>frege</artifactId>
+  <version>${frege.version}</version>
+</dependency>
+```
