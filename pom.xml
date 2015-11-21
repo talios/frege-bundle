@@ -5,7 +5,7 @@
 
     <groupId>org.frege-lang</groupId>
     <artifactId>frege</artifactId>
-    <version>3.23.370-g899bc8c-SNAPSHOT</version>
+    <version>3.23.401-g7c45277-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>Frege Language Bundle</name>
     <description>fregelib OSGi bundle project.</description>
@@ -18,12 +18,11 @@
       <tag>HEAD</tag>
   </scm>
 
-
-    <!-- https://github.com/Frege/frege/releases/download/3.23.288/frege3.23.370-g898bc8c.jar -->
+    <!-- https://github.com/Frege/frege/releases/download/3.23.288/frege3.23.401-g7c45277.jar -->
     <properties>
         <frege.main.version>3.23.288</frege.main.version>
-        <frege.base.version>3.23.370</frege.base.version>
-        <frege.version>${frege.base.version}-g898bc8c</frege.version>
+        <frege.base.version>3.23.401</frege.base.version>
+        <frege.version>${frege.base.version}-g7c45277</frege.version>
     </properties>
 
     <developers>
@@ -142,10 +141,11 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
-                <version>2.4.0</version>
+                <version>3.0.0</version>
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
+                        <Main-Class>frege.compiler.Main</Main-Class>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Version>${project.version}</Bundle-Version>
                         <Export-Package>
