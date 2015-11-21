@@ -5,7 +5,7 @@
 
     <groupId>org.frege-lang</groupId>
     <artifactId>frege</artifactId>
-    <version>3.23.401-g7c45277-SNAPSHOT</version>
+    <version>3.23.401-g8c45277-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>Frege Language Bundle</name>
     <description>fregelib OSGi bundle project.</description>
