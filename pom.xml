@@ -5,7 +5,7 @@
 
     <groupId>org.frege-lang</groupId>
     <artifactId>frege</artifactId>
-    <version>3.23.401-g8c45277-SNAPSHOT</version>
+    <version>3.23.422-ga06a487-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>Frege Language Bundle</name>
     <description>fregelib OSGi bundle project.</description>
@@ -18,11 +18,11 @@
       <tag>HEAD</tag>
   </scm>
 
-    <!-- https://github.com/Frege/frege/releases/download/3.23.288/frege3.23.401-g7c45277.jar -->
+    <!-- https://github.com/Frege/frege/releases/download/3.23.288/frege3.23.422-ga05a487.jar -->
     <properties>
         <frege.main.version>3.23.288</frege.main.version>
-        <frege.base.version>3.23.401</frege.base.version>
-        <frege.version>${frege.base.version}-g7c45277</frege.version>
+        <frege.base.version>3.23.422</frege.base.version>
+        <frege.version>${frege.base.version}-ga05a487</frege.version>
     </properties>
 
     <developers>
