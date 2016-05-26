@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>org.frege-lang</groupId>
     <artifactId>frege</artifactId>
-    <version>3.24.100.1-SNAPSHOT</version>
+    <version>3.24.100.2-SNAPSHOT</version>
     <packaging>pom</packaging>
-
     <name>Frege Language</name>
     <description>Frege Central Distribution.</description>
     <url>https://github.com/talios/frege-bundle</url>
@@ -15,7 +13,6 @@
             <name>Custom</name>
         </license>
     </licenses>
-
     <developers>
         <developer>
             <id>talios</id>
@@ -24,12 +21,12 @@
             <url>http://www.talios.com</url>
         </developer>
     </developers>
-
     <scm>
         <connection>scm:git:git@github.com:Frege/frege-bundle.git</connection>
         <developerConnection>scm:git:git@github.com:Frege/frege-bundle.git</developerConnection>
         <url>http://github.com/Frege/frege-bundle</url>
-    </scm>
+      <tag>HEAD</tag>
+  </scm>
     <distributionManagement>
         <repository>
             <id>sonatype-staging</id>
@@ -42,9 +39,27 @@
             <url>http://oss.sonatype.org/content/repositories/github-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
-
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.5.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>process-resources</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>bash</executable>
+                    <arguments>
+                        <argument>setup.sh</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
@@ -86,7 +101,6 @@
             </plugin>
         </plugins>
     </build>
-
     <profiles>
         <profile>
             <id>release</id>
