@@ -1,30 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>org.frege-lang</groupId>
     <artifactId>frege</artifactId>
-    <version>3.24-8.100-SNAPSHOT</version>
-    <packaging>bundle</packaging>
-    <name>Frege Language Bundle</name>
-    <description>fregelib OSGi bundle project.</description>
+    <version>3.24.100.2-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Frege Language</name>
+    <description>Frege Central Distribution.</description>
     <url>https://github.com/talios/frege-bundle</url>
-
-    <scm>
-        <connection>scm:git:git@github.com:Frege/frege-bundle.git</connection>
-        <developerConnection>scm:git:git@github.com:Frege/frege-bundle.git</developerConnection>
-        <url>http://github.com/Frege/frege-bundle</url>
-      <tag>HEAD</tag>
-  </scm>
-
-    <!-- https://github.com/Frege/frege/releases/download/3.24alpha/frege3.24-7.100.jar -->
-    <properties>
-        <frege.main.version>3.24alpha</frege.main.version>
-        <frege.base.version>3.24-7.100</frege.base.version>
-        <frege.version>${frege.base.version}</frege.version>
-    </properties>
-
+    <licenses>
+        <license>
+            <name>Custom</name>
+        </license>
+    </licenses>
     <developers>
         <developer>
             <id>talios</id>
@@ -33,11 +21,12 @@
             <url>http://www.talios.com</url>
         </developer>
     </developers>
-    <licenses>
-        <license>
-            <name>Custom</name>
-        </license>
-    </licenses>
+    <scm>
+        <connection>scm:git:git@github.com:Frege/frege-bundle.git</connection>
+        <developerConnection>scm:git:git@github.com:Frege/frege-bundle.git</developerConnection>
+        <url>http://github.com/Frege/frege-bundle</url>
+      <tag>HEAD</tag>
+  </scm>
     <distributionManagement>
         <repository>
             <id>sonatype-staging</id>
@@ -50,6 +39,68 @@
             <url>http://oss.sonatype.org/content/repositories/github-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.5.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>process-resources</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>bash</executable>
+                    <arguments>
+                        <argument>setup.sh</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.10</version>
+                <executions>
+                    <execution>
+                        <id>attach-artifacts</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <file>${project.build.directory}/frege-jdk7.jar</file>
+                                    <type>jar</type>
+                                    <classifier>jdk7</classifier>
+                                </artifact>
+                                <artifact>
+                                    <file>${project.build.directory}/frege-jdk8.jar</file>
+                                    <type>jar</type>
+                                    <classifier>jdk8</classifier>
+                                </artifact>
+                            </artifacts>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <preparationGoals>clean install</preparationGoals>
+                    <goals>deploy</goals>
+                    <pushChanges>false</pushChanges>
+                    <localCheckout>true</localCheckout>
+                    <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <profiles>
         <profile>
             <id>release</id>
@@ -57,7 +108,7 @@
                 <property>
                     <name>performRelease</name>
                     <value>true</value>
-                 </property>
+                </property>
             </activation>
             <build>
                 <plugins>
@@ -79,103 +130,4 @@
             </build>
         </profile>
     </profiles>
-
-    <!-- frege compiler is attached as an artifact under my GAV to push to central -->
-    <dependencies>
-        <dependency>
-            <groupId>com.theoryinpractise.frege</groupId>
-            <artifactId>fregelib</artifactId>
-            <version>${frege.version}</version>
-            <optional>true</optional>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>com.savage7.maven.plugins</groupId>
-                <artifactId>maven-external-dependency-plugin</artifactId>
-                <version>0.5</version>
-                <inherited>false</inherited>
-                <configuration>
-                    <stagingDirectory>${project.build.directory}/dependencies/</stagingDirectory>
-                    <createChecksum>true</createChecksum>
-                    <skipChecksumVerification>false</skipChecksumVerification>
-                    <force>true</force>
-                    <artifactItems>
-                        <artifactItem>
-                            <groupId>com.theoryinpractise.frege</groupId>
-                            <artifactId>fregelib</artifactId>
-                            <version>${frege.version}</version>
-                            <packaging>jar</packaging>
-                            <downloadUrl>https://github.com/Frege/frege/releases/download/${frege.main.version}/frege${frege.version}.jar</downloadUrl>
-                        </artifactItem>
-                    </artifactItems>
-                </configuration>
-<!--                 <executions>
-                    <execution>
-                        <id>clean-external-dependencies</id>
-                        <phase>clean</phase>
-                        <goals>
-                            <goal>clean-external</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>resolve-install-external-dependencies</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>resolve-external</goal>
-                            <goal>install-external</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>deploy-external-dependencies</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>deploy-external</goal>
-                        </goals>
-                    </execution>
-                 </executions>
- -->            </plugin>
-
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <version>3.0.1</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <Main-Class>frege.compiler.Main</Main-Class>
-                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                        <Bundle-Version>${project.version}</Bundle-Version>
-                        <Export-Package>
-                            com.talios.frege.osgi.*;version=${project.version}
-                        </Export-Package>
-                        <Import-Package>
-                            *
-                        </Import-Package>
-                        <Embed-Dependency>
-                            fregelib;inline=true
-                        </Embed-Dependency>
-                        <_exportcontents>
-                            frege.*; version=${frege.base.version}
-                        </_exportcontents>
-                    </instructions>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.3</version>
-                <configuration>
-                    <preparationGoals>clean install</preparationGoals>
-                    <goals>deploy</goals>
-                    <pushChanges>false</pushChanges>
-                    <localCheckout>true</localCheckout>
-                    <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
-                </configuration>
-            </plugin>
-
-        </plugins>
-    </build>
-
 </project>
